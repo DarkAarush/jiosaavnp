@@ -99,10 +99,7 @@ async def stream(
                     forceplay=forceplay,
                 )
                 img = await get_thumb(vidid)
-             #   img = await get_thumb(vidid)
-              #  close_button_text = _["CLOSE_BUTTON"]  # Get the button text
-              #  callback_data = "close"  # Define the callback data
-              #  plain_text_button = f"{close_button_text} (Callback Data: {callback_data})"  # Combine as plain text
+                button = stream_markup(_, chat_id)
                 run = await app.send_photo(
                     original_chat_id,
                     photo=img,
@@ -111,14 +108,11 @@ async def stream(
                         title[:23],
                         duration_min,
                         user_name,
-                    )
-                #    + f"\n\n{plain_text_button}",  # Add the plain text button to the caption 
-                    plain_text_button = f"\n\n{_['BACK_BUTTON']}: close"
-                    reply_markup=None,  # No inline keyboard markup
+                    ),
+                    reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "stream"
-
         if count == 0:
             return
         else:
@@ -191,10 +185,7 @@ async def stream(
                 forceplay=forceplay,
             )
             img = await get_thumb(vidid)
-          #  img = await get_thumb(vidid)
-         #   close_button_text = _["CLOSE_BUTTON"]  # Get the button text
-        #    callback_data = "close"  # Define the callback data
-          #  plain_text_button = f"{close_button_text} (Callback Data: {callback_data})"  # Combine as plain text
+            button = stream_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
                 photo=img,
@@ -203,10 +194,8 @@ async def stream(
                     title[:23],
                     duration_min,
                     user_name,
-                )
-           #     + f"\n\n{plain_text_button}",  # Add the plain text button to the caption 
-                plain_text_button = f"\n\n{_['BACK_BUTTON']}: close"
-                reply_markup=None,  # No inline keyboard markup
+                ),
+                reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "stream"

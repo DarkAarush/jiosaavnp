@@ -13,7 +13,7 @@ from JioSavaan.utils.channelplay import get_channeplayCB
 from JioSavaan.utils.decorators.language import languageCB
 from JioSavaan.utils.decorators.play import PlayWrapper
 from JioSavaan.utils.formatters import formats
-from JioSavaan.utils.inline import (
+#from JioSavaan.utils.inline import (
     botplaylist_markup,
     livestream_markup,
     playlist_markup,

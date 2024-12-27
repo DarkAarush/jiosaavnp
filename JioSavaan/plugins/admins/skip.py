@@ -7,7 +7,7 @@ from JioSavaan.core.call import Anony
 from JioSavaan.misc import db
 from JioSavaan.utils.database import get_loop
 from JioSavaan.utils.decorators import AdminRightsCheck
-from JioSavaan.utils.inline import close_markup, stream_markup
+#from JioSavaan.utils.inline import close_markup, stream_markup
 from JioSavaan.utils.stream.autoclear import auto_clean
 from JioSavaan.utils.thumbnails import get_thumb
 from config import BANNED_USERS

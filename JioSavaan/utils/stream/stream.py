@@ -190,7 +190,10 @@ async def stream(
                 forceplay=forceplay,
             )
             img = await get_thumb(vidid)
-            button = stream_markup(_, chat_id)
+            img = await get_thumb(vidid)
+            close_button_text = _["CLOSE_BUTTON"]  # Get the button text
+            callback_data = "close"  # Define the callback data
+            plain_text_button = f"{close_button_text} (Callback Data: {callback_data})"  # Combine as plain text
             run = await app.send_photo(
                 original_chat_id,
                 photo=img,
@@ -199,8 +202,9 @@ async def stream(
                     title[:23],
                     duration_min,
                     user_name,
-                ),
-                reply_markup=InlineKeyboardMarkup(button),
+                )
+                + f"\n\n{plain_text_button}",  # Add the plain text button to the caption
+                reply_markup=None,  # No inline keyboard markup
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "stream"

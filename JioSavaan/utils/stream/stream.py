@@ -100,6 +100,7 @@ async def stream(
                 )
                 img = await get_thumb(vidid)
                 button = stream_markup(_, chat_id)
+                plain_text_button = f"\n\n{_['BACK_BUTTON']}: close"
                 run = await app.send_photo(
                     original_chat_id,
                     photo=img,
@@ -108,7 +109,7 @@ async def stream(
                         title[:23],
                         duration_min,
                         user_name,
-                    ),
+                    ), + plain_text_button,  # Append the plain text button here
                     reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
@@ -186,6 +187,7 @@ async def stream(
             )
             img = await get_thumb(vidid)
             button = stream_markup(_, chat_id)
+            plain_text_button = f"\n\n{_['BACK_BUTTON']}: close"
             run = await app.send_photo(
                 original_chat_id,
                 photo=img,
@@ -194,7 +196,7 @@ async def stream(
                     title[:23],
                     duration_min,
                     user_name,
-                ),
+                ), + plain_text_button,  # Append the plain text button here
                 reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run

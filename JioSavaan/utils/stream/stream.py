@@ -99,7 +99,7 @@ async def stream(
                     forceplay=forceplay,
                 )
                 img = await get_thumb(vidid)
-                img = await get_thumb(vidid)
+             #   img = await get_thumb(vidid)
                 close_button_text = _["CLOSE_BUTTON"]  # Get the button text
                 callback_data = "close"  # Define the callback data
                 plain_text_button = f"{close_button_text} (Callback Data: {callback_data})"  # Combine as plain text
@@ -190,7 +190,7 @@ async def stream(
                 forceplay=forceplay,
             )
             img = await get_thumb(vidid)
-            img = await get_thumb(vidid)
+          #  img = await get_thumb(vidid)
             close_button_text = _["CLOSE_BUTTON"]  # Get the button text
             callback_data = "close"  # Define the callback data
             plain_text_button = f"{close_button_text} (Callback Data: {callback_data})"  # Combine as plain text

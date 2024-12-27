@@ -110,7 +110,7 @@ async def stream(
                         duration_min,
                         user_name,
                     ), 
-                    + plain_text_button,  # Append the plain text button here
+                    +f"\n\n{plain_text_button}", # Append the plain text button here
                     reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
